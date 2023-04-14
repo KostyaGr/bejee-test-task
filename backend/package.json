@@ -22,7 +22,7 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "build": "rimraf dist && babel --ignore node-modules ./ --out-dir dist  --copy-files",
+    "build": "rimraf dist && babel --ignore node_modules ./ --out-dir dist  --copy-files",
     "start": "node dist/app.js",
     "start:dev": "nodemon --exec babel-node bin/www.js"
   },
