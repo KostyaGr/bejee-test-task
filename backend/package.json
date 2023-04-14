@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "rimraf dist && babel --ignore node_modules ./ --out-dir dist  --copy-files",
-    "start": "node dist/app.js",
+    "start": "node dist/bin/www.js",
     "start:dev": "nodemon --exec babel-node bin/www.js"
   },
   "dependencies": {

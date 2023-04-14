@@ -10,3 +10,20 @@ services:
       POSTGRES_DB: todo
     ports: 
       - 5432:5432
+  backend:
+    build: ./backend
+    image: backend
+    container_name: backend
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    image: frontend
+    container_name: frontend
+    ports:
+      - 80:80
+    depends_on:
+      - backend
