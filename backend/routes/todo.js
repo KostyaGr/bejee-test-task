@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
     res.json(
       getResponse({
         data: {
-          ...todos,
+          todoList: todos,
           pagination: {
             todoCount: count,
             pagesCount: Math.ceil(count / limit),
@@ -72,7 +72,7 @@ router.post("/", async (req, res) => {
       userEmail,
       text,
     });
-    res.json(todo);
+    res.json(getResponse({ data: todo }));
   } catch (err) {
     res.status(500).json(
       getResponse({
@@ -147,6 +147,7 @@ router.put("/edit/:todoId", authorizeMiddleware(), async (req, res) => {
     await models.Todo.update(
       {
         text,
+        editedByAdmin: true,
       },
       {
         where: {
