@@ -53,7 +53,6 @@ export default function Login({ open, handleClose, login }) {
 
     try {
       const loginData = await login(data.token).unwrap();
-      console.log(loginData);
       if (loginData.status) {
         dispatch(setToken(data));
         if (
